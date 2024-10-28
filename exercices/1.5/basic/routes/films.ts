@@ -65,10 +65,12 @@ router.post("/", (req, res) => {
   const addedFilm: Film = {
     id: nextId, title, director, duration, budget, imageUrl,
   };
+  
   const exist = films.find((film) => film.title === title && film.director === director);
   if (exist) {
     return res.status(409).json();
   }
+  filmss.push(addedFilm);
 
   serialize(jsonDbPath, filmss);
 
@@ -84,6 +86,7 @@ router.get("/:id", (req, res) => {
   const indexOffilmFound = filmss.findIndex(
     (film: Film) => film.id === idInRequest
   );
+
 
   if (indexOffilmFound < 0) return res.sendStatus(404);
 

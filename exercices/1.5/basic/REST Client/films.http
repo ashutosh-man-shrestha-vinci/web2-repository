@@ -14,8 +14,8 @@ Content-Type: application/json
 {
   "title": "Inception",
     "director": "Christopher Nolan",
-    "duration": 148,
-    "budget": 100 ,
+    "duration": 140,
+    "budget": 160,
     "imageUrl": "https://example.com/inception.jpg"
 }
 
