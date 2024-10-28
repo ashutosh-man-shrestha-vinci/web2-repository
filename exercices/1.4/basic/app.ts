@@ -15,5 +15,15 @@ app.use("/users", usersRouter);
 app.use("/pizzas", pizzaRouter);
 app.use("/films", filmRouter);
 
+let count = 0; // Compteur de requêtes GET
+
+// Middleware pour compter les requêtes GET
+app.use((req, _res, next) => {
+  if (req.method === "GET") {
+    count++; // Incrémente le compteur
+    console.log(`GET counter: ${count}`);
+  }
+  next(); // Passe à la route suivante
+});
 
 export default app;

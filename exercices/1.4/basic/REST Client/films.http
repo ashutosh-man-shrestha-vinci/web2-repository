@@ -1,0 +1,21 @@
+### Read all drinks with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/films
+### Read a single drink
+GET {{baseUrl}}/films/3
+
+### Read all drinks cheaper or equal to 3 €
+GET {{baseUrl}}/films/?budget-max=300
+
+### Create a drink
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+  "title": "Inception",
+    "director": "Christopher Nolan",
+    "duration": 148,
+    "budget": 160,
+    "imageUrl": "https://example.com/inception.jpg"
+}
+
