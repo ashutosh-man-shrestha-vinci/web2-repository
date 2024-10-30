@@ -3,6 +3,7 @@ import express from "express";
 import usersRouter from "./routes/users";
 import pizzaRouter from "./routes/pizzas";
 import filmRouter from "./routes/films";
+import textRouter from "./routes/texts";
 
 
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/users", usersRouter);
 app.use("/pizzas", pizzaRouter);
 app.use("/films", filmRouter);
+app.use('/texts', textRouter);
 
 
 let count = 0; // Compteur de requêtes GET

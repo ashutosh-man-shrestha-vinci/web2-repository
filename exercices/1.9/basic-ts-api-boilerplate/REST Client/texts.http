@@ -1,0 +1,32 @@
+### Read all texts
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/texts
+
+### Read a single text (id)
+GET {{baseUrl}}/texts/b3430b4c-423c-43da-9e78-7142c27e257b
+
+### Search text with level medium
+GET {{baseUrl}}/texts/?level=hard
+
+### Create a text
+POST {{baseUrl}}/texts
+Content-Type: application/json
+
+{
+
+    "content": "lili",
+    "level": "hard"
+}
+
+### Delete a text
+DELETE {{baseUrl}}/texts/b3430b4c-423c-43da-9e78-7142c27e257b
+
+### Update a text
+PUT {{baseUrl}}/texts/b3430b4c-423c-43da-9e78-7142c27e257b
+Content-Type: application/json
+
+{
+
+    "content": "anything",
+    "level": "hard"
+}
