@@ -112,15 +112,20 @@ router.post("/", (req, res) => {
 
 // Delete a pizza from the menu based on its id
 router.delete("/:id", (req, res) => {
-  const id = Number(req.params.id);
-  const index = defaultPizzas.findIndex((pizza) => pizza.id === id);
-  if (index === -1) {
-    return res.sendStatus(404);
-  }
-  const deletedElements = defaultPizzas.splice(index, 1); // splice() returns an array of the deleted elements
-  return res.json(deletedElements[0]);
-});
+  const pizzas = parse(jsonDbPath, defaultPizzas);
+  console.log("delete operation requested on ", pizzas);
+  const idInRequest = parseInt(req.params.id, 10);
+  const foundIndex = pizzas.findIndex((pizza) => pizza.id === idInRequest);
 
+  if (foundIndex < 0) return res.sendStatus(404);
+
+  const itemsRemovedFromMenu = pizzas.splice(foundIndex, 1);
+  const itemRemoved = itemsRemovedFromMenu[0];
+
+  serialize(jsonDbPath, pizzas);
+
+  return res.json(itemRemoved);
+});
 
 // Update a pizza based on its id and new values for its parameters
 router.patch("/:id", (req, res) => {
