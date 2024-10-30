@@ -1,0 +1,37 @@
+
+### Read all movies
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/films
+
+### Read all filtered
+GET {{baseUrl}}/films/?minimum-duration=200
+
+### Read one
+GET {{baseUrl}}/films/2
+
+
+### Create one 
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{ 
+    
+  "title" : "hey",
+  "director" : "me",
+  "duration" : 200,
+  "budget" : 35000,
+  "description" : "idk",
+  "imageUrl" : null
+}
+    
+### Delete a movie
+DELETE {{baseUrl}}/films/1
+
+### Update the movie identified by 3
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+
+    "title":"Magic Green 2"
+}
